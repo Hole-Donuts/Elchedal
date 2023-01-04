@@ -6,8 +6,6 @@ using static UnityEngine.GraphicsBuffer;
 public class Archer : enemy
 {
     [Header("Ranged Attack Variable")]
-
-    [SerializeField] bool _AttackMode = false;
     [SerializeField] Transform _ProjectilePos;
     private void Update()
     {
@@ -58,12 +56,6 @@ public class Archer : enemy
         if (_shootrange.collider.gameObject.tag == "Player")
         {
             Debug.Log("ada player");
-            _AttackMode = true;
-
-        }
-        else
-        {
-            _AttackMode = false;
         }
     }
 

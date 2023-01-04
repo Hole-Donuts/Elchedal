@@ -6,7 +6,6 @@ public class BossNecromancer : enemy
 {
     [Header("Ranged Attack Variable")]
 
-    [SerializeField] bool _AttackMode = false;
     [SerializeField] Transform _ProjectilePos;
 
     [Header("Boss Variable")]
@@ -78,12 +77,6 @@ public class BossNecromancer : enemy
         if (_shootrange.collider.gameObject.tag == "Player")
         {
             Debug.Log("ada player");
-            _AttackMode = true;
-
-        }
-        else
-        {
-            _AttackMode = false;
         }
     }
 
