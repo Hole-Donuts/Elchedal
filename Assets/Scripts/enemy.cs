@@ -23,7 +23,7 @@ public class enemy : MonoBehaviour
     void Start()
     {
 
-        _HealthPoint = _MaxHealthPoint;
+       _MaxHealthPoint = _StatusCharacter._Health;
         _Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         _SP = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();

@@ -16,4 +16,5 @@ public class StatSCharacter : ScriptableObject
 
     [Header("Variable For Ranged Enemy")]
     public GameObject _Projectile;
+    public float _Force;
 }
