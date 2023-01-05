@@ -20,6 +20,16 @@ public class Arrow : MonoBehaviour
 
         float _Rot = Mathf.Atan2(-_Direction.y, _Direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, _Rot + 90);
+
+        Destroy(gameObject, 5);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

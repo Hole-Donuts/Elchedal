@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d99e7b02f5219d4cb92fbea5169b1ca, type: 3}
-  m_Name: Archer
+  m_Name: BossNecromancer
   m_EditorClassIdentifier: 
-  _EnemyName: Archer
-  _Health: 100
-  _Speed: 3
-  _Distance: 28.04
-  _Attackrange: 8.22
-  _AttackCooldown: 2
+  _EnemyName: Boss Necroamancer
+  _Health: 1000
+  _Speed: 4
+  _Distance: 10
+  _Attackrange: 8
+  _AttackCooldown: 3
   _LayerMask:
     serializedVersion: 2
     m_Bits: 64
-  _Projectile: {fileID: 338711442568321899, guid: 046e897811b10ef46adec8c51fd1e804, type: 3}
+  _Projectile: {fileID: 7088048277402091159, guid: efa6960b1f7657e46a8743da1f0879b2, type: 3}
   _Force: 20
