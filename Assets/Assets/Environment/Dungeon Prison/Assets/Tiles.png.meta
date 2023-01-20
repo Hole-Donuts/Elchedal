@@ -101,6 +101,42 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -23987,9 +24023,9 @@ TextureImporter:
       Tiles_913: -100630225
       Tiles_744: 1582864338
       Tiles_644: 13766636
-      Tiles_739: 1799291661
-      Tiles_894: 1188539487
       Tiles_936: 505941478
+      Tiles_894: 1188539487
+      Tiles_739: 1799291661
       Tiles_569: -1850732634
       Tiles_440: -1410057738
       Tiles_502: -1042843724
@@ -24030,11 +24066,11 @@ TextureImporter:
       Tiles_723: -272947173
       Tiles_1033: -1413015677
       Tiles_204: -1245492731
-      Tiles_77: -1572237527
       Tiles_486: 973313424
+      Tiles_77: -1572237527
+      Tiles_972: 1432548891
       Tiles_184: -1932942179
       Tiles_562: 2028135178
-      Tiles_972: 1432548891
       Tiles_594: -1340477282
       Tiles_298: 635757706
       Tiles_572: 606052155
@@ -24099,27 +24135,27 @@ TextureImporter:
       Tiles_509: -484772332
       Tiles_138: -106376881
       Tiles_854: -1916181967
-      Tiles_1044: 1578874034
+      Tiles_1126: 664040129
       Tiles_91: -937451486
       Tiles_885: -1492166993
       Tiles_1037: 834632887
       Tiles_384: -1926210430
       Tiles_17: -2021359600
       Tiles_647: -998423544
-      Tiles_1073: -2023214856
+      Tiles_1044: 1578874034
       Tiles_888: -354931397
       Tiles_923: -1131562562
-      Tiles_1126: 664040129
       Tiles_16: 1313890068
+      Tiles_1073: -2023214856
       Tiles_71: 1617973324
-      Tiles_419: -1228745182
       Tiles_604: 1954102700
+      Tiles_1048: 2090350760
+      Tiles_419: -1228745182
       Tiles_814: -1636332867
       Tiles_60: -878188253
-      Tiles_338: 21356530
-      Tiles_1048: 2090350760
-      Tiles_630: 790169650
       Tiles_1060: 446067269
+      Tiles_338: 21356530
+      Tiles_630: 790169650
       Tiles_162: 711878505
       Tiles_319: -238868815
       Tiles_1089: -1009264284
@@ -24230,14 +24266,14 @@ TextureImporter:
       Tiles_795: -1280273556
       Tiles_1124: 2067629690
       Tiles_397: 1515221586
+      Tiles_914: 1064609281
       Tiles_176: 1412609380
+      Tiles_946: 1854916231
       Tiles_591: 204324538
       Tiles_241: -1062381641
-      Tiles_366: 2116959391
-      Tiles_946: 1854916231
-      Tiles_914: 1064609281
       Tiles_945: -2070140145
       Tiles_636: 771446012
+      Tiles_366: 2116959391
       Tiles_986: 1673060576
       Tiles_35: -2090743563
       Tiles_775: -51334030
@@ -24543,8 +24579,8 @@ TextureImporter:
       Tiles_928: -2023201594
       Tiles_417: 67857486
       Tiles_672: -1443294549
-      Tiles_837: 490699241
       Tiles_1125: 1516765668
+      Tiles_837: 490699241
       Tiles_1112: 754772731
       Tiles_93: 1369834912
       Tiles_547: 911361772
@@ -24613,13 +24649,13 @@ TextureImporter:
       Tiles_677: 189445596
       Tiles_870: 227218240
       Tiles_181: -441754213
-      Tiles_212: 1538428501
+      Tiles_257: -2078596286
       Tiles_24: 318447044
       Tiles_305: -594067275
-      Tiles_257: -2078596286
       Tiles_598: -2005415424
-      Tiles_503: 1452104423
       Tiles_1019: -271084318
+      Tiles_212: 1538428501
+      Tiles_1035: 1342987863
       Tiles_58: 1566803003
       Tiles_679: -1724658820
       Tiles_113: -72514946
@@ -24627,23 +24663,23 @@ TextureImporter:
       Tiles_353: 959445077
       Tiles_191: -1584963914
       Tiles_1062: -363474093
-      Tiles_929: 1179424930
+      Tiles_503: 1452104423
       Tiles_230: -1399412879
-      Tiles_372: 1618358971
       Tiles_568: 2115418857
-      Tiles_484: 1095404672
+      Tiles_804: 763101673
+      Tiles_372: 1618358971
       Tiles_643: 1887192339
-      Tiles_1035: 1342987863
+      Tiles_929: 1179424930
+      Tiles_484: 1095404672
       Tiles_476: -252512711
       Tiles_588: 475956689
-      Tiles_999: -837604128
       Tiles_1122: -1148908940
       Tiles_748: -1397597397
       Tiles_820: 1941967704
       Tiles_88: -1752386869
       Tiles_1042: 1853428405
       Tiles_394: -2145863078
-      Tiles_804: 763101673
+      Tiles_999: -837604128
       Tiles_1058: 1068421815
       Tiles_852: -1354077387
       Tiles_674: -1616431907

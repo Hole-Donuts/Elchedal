@@ -5,17 +5,27 @@ using UnityEngine.UI;
 
 public class CardManager : MonoBehaviour
 {
-    public Sprite[] sprites;
-    private int random;
-    public Image image;
-
+    public List<GameObject> prefabs;
+    public int maxCard = 3;
+    public Transform canvas;
     public void Start()
     {
-        random= Random.Range(0,sprites.Length);
-        image.sprite=sprites[random];
+        
+        SPawn();
     }
     public void Update()
     {
-       
+        
+    }
+
+    void SPawn()
+    {
+        
+        for(int i = 0; i < maxCard; i++)
+        {
+            int n = Random.Range(0,prefabs.Count-1);
+            Instantiate(prefabs[n], transform.position,Quaternion.identity,canvas);
+            Debug.Log(n);
+        }
     }
 }
