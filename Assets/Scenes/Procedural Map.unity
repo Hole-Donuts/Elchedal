@@ -370,7 +370,7 @@ Transform:
   m_Children:
   - {fileID: 589318315}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1371364788
 MonoBehaviour:
@@ -385,9 +385,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bottomRooms:
+  - {fileID: 2254007662435211551, guid: 542ef240e04898649be78535eef4ceba, type: 3}
+  - {fileID: 5847830943709986524, guid: 4817f9de5f482804fb0a6f4558695f6f, type: 3}
+  - {fileID: 4956954385520413486, guid: 6edcaa6b6967f754fa87f04561b71b3e, type: 3}
+  - {fileID: 4979283651568146254, guid: db238762dd31ebd408fab499a84104c3, type: 3}
   - {fileID: 2061359496138318724, guid: 7b83d346772cb4145bace752dadfad83, type: 3}
   _topRooms:
-  - {fileID: 2061359496138318724, guid: 7b83d346772cb4145bace752dadfad83, type: 3}
+  - {fileID: 0}
   _leftRoom: []
   _rightRooms: []
   _closeRoom: {fileID: 0}
@@ -718,5 +722,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
