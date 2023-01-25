@@ -8,12 +8,12 @@ public class RoomSpawn : MonoBehaviour
     private RoomManager _roomTemplates;
     private int _Rand;
     bool _Spawned = false;
-
+    [SerializeField] Transform _PosSpawnrooms;
     private void Start()
     {
         _roomTemplates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomManager>();
         Invoke("Spawn", 0.1f);
-       
+        _PosSpawnrooms = GameObject.Find("Spawn Prefab").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -24,22 +24,22 @@ public class RoomSpawn : MonoBehaviour
             if (_openingDirection == 1)
             {
                 _Rand = Random.Range(0, _roomTemplates._bottomRooms.Length);
-                Instantiate(_roomTemplates._bottomRooms[_Rand], transform.position, _roomTemplates._bottomRooms[_Rand].transform.rotation);
+                Instantiate(_roomTemplates._bottomRooms[_Rand], transform.position, _roomTemplates._bottomRooms[_Rand].transform.rotation, _PosSpawnrooms);
             }
             else if (_openingDirection == 2)
             {
                 _Rand = Random.Range(0, _roomTemplates._topRooms.Length);
-                Instantiate(_roomTemplates._topRooms[_Rand], transform.position, _roomTemplates._topRooms[_Rand].transform.rotation);
+                Instantiate(_roomTemplates._topRooms[_Rand], transform.position, _roomTemplates._topRooms[_Rand].transform.rotation, _PosSpawnrooms);
             }
             else if (_openingDirection == 3)
             {
                 _Rand = Random.Range(0, _roomTemplates._leftRoom.Length);
-                Instantiate(_roomTemplates._leftRoom[_Rand], transform.position, _roomTemplates._leftRoom[_Rand].transform.rotation);
+                Instantiate(_roomTemplates._leftRoom[_Rand], transform.position, _roomTemplates._leftRoom[_Rand].transform.rotation, _PosSpawnrooms);
             }
             else if (_openingDirection == 4)
             {
                 _Rand = Random.Range(0, _roomTemplates._rightRooms.Length);
-                Instantiate(_roomTemplates._rightRooms[_Rand], transform.position, _roomTemplates._rightRooms[_Rand].transform.rotation);
+                Instantiate(_roomTemplates._rightRooms[_Rand], transform.position, _roomTemplates._rightRooms[_Rand].transform.rotation, _PosSpawnrooms);
             }
             _Spawned = true;
         }
