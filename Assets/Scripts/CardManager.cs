@@ -3,29 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardManager : MonoBehaviour
+namespace HoleDonuts
 {
-    public List<GameObject> prefabs;
-    public int maxCard = 3;
-    public Transform canvas;
-    public void Start()
-    {
-        
-        SPawn();
-    }
-    public void Update()
-    {
-        
-    }
 
-    void SPawn()
+
+    public class CardManager : MonoBehaviour
     {
-        
-        for(int i = 0; i < maxCard; i++)
+        public List<GameObject> prefabs = new List<GameObject>();
+        public int maxCard = 3;
+        public Transform canvas;
+        public void Start()
         {
-            int n = Random.Range(0,prefabs.Count-1);
-            Instantiate(prefabs[n], transform.position,Quaternion.identity,canvas);
-            Debug.Log(n);
+            prefabs.Shuffle(5);
+            SPawn();
         }
+        public void Update()
+        {
+
+        }
+
+        void SPawn()
+        {
+
+            for (int i = 0; i < maxCard; i++)
+            {
+
+                Instantiate(prefabs[i], transform.position, Quaternion.identity, canvas);
+                Debug.Log(prefabs);
+            }
+        }
+
+
     }
 }
