@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _StatusCharacter: {fileID: 11400000, guid: c0cdc0f149f2b154d93f4dfa5fc6e1f8, type: 2}
-  _MaxHealthPoint: 0
+  _MaxHealthPoint: 1
   _Target: {fileID: 0}
   _Collider: {fileID: 6167730431852733313}
 --- !u!95 &6167730431852733314

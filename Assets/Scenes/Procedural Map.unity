@@ -234,7 +234,6 @@ GameObject:
   m_Component:
   - component: {fileID: 372354752}
   - component: {fileID: 372354754}
-  - component: {fileID: 372354753}
   m_Layer: 0
   m_Name: Camera Minimap
   m_TagString: Untagged
@@ -257,14 +256,6 @@ Transform:
   m_Father: {fileID: 1621735174}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &372354753
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372354751}
-  m_Enabled: 1
 --- !u!20 &372354754
 Camera:
   m_ObjectHideFlags: 0
@@ -406,8 +397,8 @@ MonoBehaviour:
   _rooms: []
   _PosSpawnPrefab: {fileID: 589318315}
   _waitTime: 2
-  _boss: {fileID: 0}
-  _enemy: {fileID: 0}
+  _boss: {fileID: 8831205443801185405, guid: 96e70c0bb7ee80543882cb701d3818c7, type: 3}
+  _enemy: {fileID: 1256107964349877909, guid: 234ec337bbd4aea4aa49fadec277e330, type: 3}
   _blacksmith: {fileID: 0}
   _chesstreasure: {fileID: 0}
 --- !u!1 &1412717396
@@ -517,6 +508,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 469050825352043994, guid: 2c82c0562f973f54d9e8c46dd451033d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1402518298346499801, guid: 2c82c0562f973f54d9e8c46dd451033d, type: 3}
       propertyPath: m_Name
       value: Entry
