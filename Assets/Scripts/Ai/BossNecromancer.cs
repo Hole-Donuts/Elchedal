@@ -54,7 +54,13 @@ public class BossNecromancer : enemy
         _CooldownTimer += Time.deltaTime;
         if (_CooldownTimer >= _StatusCharacter._AttackCooldown)
         {
-            Instantiate(_StatusCharacter._Projectile, _ProjectilePos.position, Quaternion.identity);
+            //Instantiate(_StatusCharacter._Projectile, _ProjectilePos.position, Quaternion.identity);
+            GameObject bullet = ObjectPooling._instance.GetPooled();
+            if (!bullet!=null)
+            {
+                bullet.transform.position = _ProjectilePos.position;
+                bullet.SetActive(true);
+            }
             _CooldownTimer = 0;
             _animator.SetTrigger("Attack");
         }

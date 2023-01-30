@@ -57,21 +57,16 @@ public class RoomManager : MonoBehaviour
                 }
             }
 
-            for (int i = 0; i < _rooms.Count; i++)
+            for(int i= 0; i < _rooms.Count; i++)
             {
-                if (i == _rooms.Count - 3)
+                if(i == _rooms.Count - 2)
                 {
                     Instantiate(_chesstreasure, _rooms[i].transform.position, Quaternion.identity, _PosSpawnPrefab);
+                    Debug.Log("Muncul Peti");
                 }
             }
 
-            for (int i = 0; i < _rooms.Count; i++)
-            {
-                if (i == _rooms.Count - 10)
-                {
-                    Instantiate(_chesstreasure, _rooms[i].transform.position, Quaternion.identity, _PosSpawnPrefab);
-                }
-            }
+            
         }
         else
         {

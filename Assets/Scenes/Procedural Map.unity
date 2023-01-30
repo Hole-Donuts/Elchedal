@@ -399,8 +399,8 @@ MonoBehaviour:
   _waitTime: 2
   _boss: {fileID: 8831205443801185405, guid: 96e70c0bb7ee80543882cb701d3818c7, type: 3}
   _enemy: {fileID: 1256107964349877909, guid: 234ec337bbd4aea4aa49fadec277e330, type: 3}
-  _blacksmith: {fileID: 0}
-  _chesstreasure: {fileID: 0}
+  _blacksmith: {fileID: 338711442568321899, guid: 046e897811b10ef46adec8c51fd1e804, type: 3}
+  _chesstreasure: {fileID: 6131124620316985226, guid: 6365e2704076e9245aa4d707ca8deef6, type: 3}
 --- !u!1 &1412717396
 GameObject:
   m_ObjectHideFlags: 0

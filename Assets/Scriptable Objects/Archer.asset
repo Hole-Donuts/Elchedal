@@ -17,7 +17,7 @@ MonoBehaviour:
   _Speed: 3
   _Distance: 28.04
   _Attackrange: 8.22
-  _AttackCooldown: 2
+  _AttackCooldown: 3
   _LayerMask:
     serializedVersion: 2
     m_Bits: 64
