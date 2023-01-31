@@ -9,7 +9,7 @@ namespace x
     {
         private const string HORIZONTAL = "Horizontal";
         private const string VERTICAL = "Vertical";
-        private const string DODGE = "Jump";
+        //private const string DODGE = "Jump";
 
         //    private Rigidbody2D rb2D;
 
@@ -39,11 +39,12 @@ namespace x
 
         private const float MOVE_SPEED = 6f;
 
-        private enum State
+        public enum State
         {
             Normal,
             Rolling,
-            Attacking
+            Attacking,
+            Blocking
         }
 
         [SerializeField] private LayerMask dashLayerMask;
@@ -58,7 +59,7 @@ namespace x
         private float rollSpeed;
 
         //private bool isDashButtonDown;
-        private State state;
+        public State state;
 
         public float health;
 
@@ -126,6 +127,11 @@ namespace x
                         state = State.Attacking;
                         StartCoroutine(Attack());
                     }
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        state = State.Blocking;
+                        rigidbody2D.velocity = Vector2.zero;
+                    }
                     break;
 
                 case State.Rolling:
@@ -140,6 +146,13 @@ namespace x
                     break;
 
                 case State.Attacking:
+                    break;
+
+                case State.Blocking:
+                    if (Input.GetMouseButtonUp(1))
+                    {
+                        state = State.Normal;
+                    }
                     break;
             }
         }
