@@ -1,41 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace x
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerController : MonoBehaviour, IDamageAble
     {
+        private Animator playerAnimator;
         private const string HORIZONTAL = "Horizontal";
         private const string VERTICAL = "Vertical";
-        //private const string DODGE = "Jump";
 
-        //    private Rigidbody2D rb2D;
-
-        //    [SerializeField]
-        //    private float speed;
-
-        //    private float health;
-
-        //    private void Awake()
-        //    {
-        //        rb2D = GetComponent<Rigidbody2D>();
-        //    }
-
-        //    private void Update()
-        //    {
-        //        Vector2 move = new Vector2(Input.GetAxisRaw(HORIZONTAL), Input.GetAxisRaw(VERTICAL));
-        //        move = move.normalized * Time.fixedDeltaTime * speed;
-        //        Moving(move);
-        //    }
-
-        //    public void Moving(Vector2 _move)
-        //    {
-        //        rb2D.velocity = _move;
-        //        if (Input.GetButtonDown(DODGE))
-        //            rb2D.velocity *= 100;
-        //    }
+        public PlayerAttack playerAttack;
 
         private const float MOVE_SPEED = 6f;
 
@@ -44,27 +21,31 @@ namespace x
             Normal,
             Rolling,
             Attacking,
-            Blocking
+            Blocking,
+            Delaying
         }
 
         [SerializeField] private LayerMask dashLayerMask;
 
         private Rigidbody2D rigidbody2D;
 
-        //private Vector3 moveDir;
         private Vector3 moveDir;
 
         private Vector3 rollDir;
         private Vector3 lastMoveDir;
         private float rollSpeed;
 
-        //private bool isDashButtonDown;
         public State state;
 
         public float health;
 
+        private int _attackState = 0;
+        private float _attackInterval = 0.2f;
+        private float _attackIntervalTimer = 0;
+
         private void Awake()
         {
+            playerAnimator = GetComponent<Animator>();
             rigidbody2D = GetComponent<Rigidbody2D>();
             state = State.Normal;
         }
@@ -75,63 +56,28 @@ namespace x
             {
                 case State.Normal:
                     Vector2 move = new Vector2(Input.GetAxisRaw(HORIZONTAL), Input.GetAxisRaw(VERTICAL));
-                    //float moveX = 0f;
-                    //float moveY = 0f;
-
-                    //if (Input.GetKey(KeyCode.W))
-                    //{
-                    //    moveY = +1f;
-                    //}
-                    //if (Input.GetKey(KeyCode.S))
-                    //{
-                    //    moveY = -1f;
-                    //}
-                    //if (Input.GetKey(KeyCode.A))
-                    //{
-                    //    moveX = -1f;
-                    //}
-                    //if (Input.GetKey(KeyCode.D))
-                    //{
-                    //    moveX = +1f;
-                    //}
-
-                    //moveDir = new Vector3(moveX, moveY).normalized;
                     moveDir = move.normalized;
 
-                    //if (moveX != 0 || moveY != 0)
-                    //{
-                    //    // Not idle
-                    //    lastMoveDir = moveDir;
-                    //}
                     if (move != Vector2.zero)
                     {
                         // Not idle
                         lastMoveDir = moveDir;
                     }
-                    //characterBase.PlayMoveAnim(moveDir);
-
-                    //if (Input.GetKeyDown(KeyCode.F))
-                    //{
-                    //    isDashButtonDown = true;
-                    //}
 
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
                         rollDir = lastMoveDir;
                         rollSpeed = 50f;
                         state = State.Rolling;
-                        //characterBase.PlayRollAnimation(rollDir);
                     }
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        state = State.Attacking;
-                        StartCoroutine(Attack());
-                    }
+                    Attacking(_attackState);
+
                     if (Input.GetMouseButtonDown(1))
                     {
                         state = State.Blocking;
                         rigidbody2D.velocity = Vector2.zero;
                     }
+
                     break;
 
                 case State.Rolling:
@@ -146,13 +92,18 @@ namespace x
                     break;
 
                 case State.Attacking:
+                    Attacking(_attackState);
                     break;
 
                 case State.Blocking:
+                    state = Input.GetMouseButtonUp(1) ? State.Normal : state;
                     if (Input.GetMouseButtonUp(1))
                     {
                         state = State.Normal;
                     }
+                    break;
+
+                case State.Delaying:
                     break;
             }
         }
@@ -193,12 +144,40 @@ namespace x
             }
         }
 
-        private IEnumerator Attack()
+        public void Attacking(int attackState)
+        {
+            //if (_attackIntervalTimer > 0)
+            //{
+            //    _attackIntervalTimer -= Time.deltaTime;
+            //}
+            if (Input.GetMouseButtonDown(0))
+            {
+                state = State.Delaying;
+                if (_attackState == playerAttack.animationClip.Count)
+                {
+                    _attackState = 0;
+                }
+                StopAllCoroutines();
+                StartCoroutine(Attack(_attackState));
+            }
+        }
+
+        private IEnumerator Attack(int attackState)
         {
             moveDir = Vector2.zero;
-            Debug.Log("Mulai Attack");
-            yield return new WaitForSeconds(2f);
-            Debug.Log("Selesai Attack");
+            playerAnimator.CrossFade(playerAttack.animationClip[attackState].name, 0);
+            float time = playerAnimator.runtimeAnimatorController.animationClips.First(x => x.name == playerAttack.animationClip[attackState].name).length;
+            yield return new WaitForSeconds(time - _attackInterval);
+            state = State.Attacking;
+            _attackState += 1;
+            _attackIntervalTimer = _attackInterval;
+            yield return new WaitForSeconds(_attackInterval);
+            //if (attackState != _attackState)
+            //{
+            //    Debug.Log("Kebreak");
+            //    yield break;
+            //}
+            _attackState = 0;
             state = State.Normal;
         }
 
@@ -214,6 +193,7 @@ namespace x
                     break;
 
                 case State.Attacking:
+                    health -= _damage;
                     break;
             }
         }
