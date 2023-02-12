@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerWeaponManager : MonoBehaviour
+public class PlayerWeaponController : MonoBehaviour
 {
     public const string ENEMY = "Enemy";
     public PlayerSkill playerSkill1;

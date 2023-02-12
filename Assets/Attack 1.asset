@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Attack 1
   m_EditorClassIdentifier: 
   x: 0
-  attackIcon: {fileID: 0}
+  attackIcon: {fileID: 21300000, guid: d7e26ffc768d5ab41b36773cc01f90a3, type: 3}
   attackDamage:
   - 10
   - 20
