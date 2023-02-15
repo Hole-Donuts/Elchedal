@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b78fdc0079e754da8a104a7bfcb780, type: 3}
+  m_Name: Attack 1
+  m_EditorClassIdentifier: 
+  x: 0
+  attackIcon: {fileID: 21300000, guid: d7e26ffc768d5ab41b36773cc01f90a3, type: 3}
+  attackDamage:
+  - 10
+  - 20
+  - 30
+  animationClip:
+  - {fileID: 7400000, guid: 005cc0ce97ebd7a4792ce1fbcfb471ac, type: 2}
+  - {fileID: 7400000, guid: 30bafe0738e77954288d303608b31638, type: 2}
+  - {fileID: 7400000, guid: b83f1dc5263590441ae13cdc468fb055, type: 2}
