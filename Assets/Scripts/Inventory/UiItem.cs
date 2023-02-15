@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,45 +12,57 @@ public class UiItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandl
     private RectTransform rect;
     InventoryUi inventoryUi;
     Transform originalparent;
+    private GameObject drawcardPanel;
+
     public void OnBeginDrag(PointerEventData eventData)
     {
-        image.color = Color.gray;
-        originalparent = transform.parent;
-        rect.SetAsLastSibling();
+        if (drawcardPanel.activeInHierarchy==false)
+        {
+            image.color = Color.gray;
+            originalparent = transform.parent; 
+            rect.SetAsLastSibling();
+            
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (drawcardPanel.activeInHierarchy==false)
         rect.anchoredPosition += eventData.delta;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        foreach(GameObject slot in inventoryUi._Slot)
+        if (drawcardPanel.activeInHierarchy == false)
         {
-            if (slot.GetComponent<RectTransform>().rect.Contains(slot.transform.InverseTransformPoint(Input.mousePosition)))
+            foreach(GameObject slot in inventoryUi._Slot)
             {
-                if (slot.transform.childCount > 0)
+                if (slot.GetComponent<RectTransform>().rect.Contains(slot.transform.InverseTransformPoint(Input.mousePosition)))
                 {
-                    Transform currentchild = slot.transform.GetChild(0);
-                    currentchild.SetParent(originalparent);
-                    currentchild.localPosition = Vector3.zero;
+                    if (slot.transform.childCount > 0)
+                    {
+                        Transform currentchild = slot.transform.GetChild(0);
+                        currentchild.SetParent(originalparent);
+                        currentchild.localPosition = Vector3.zero;
+                    }
+                    gameObject.transform.SetParent(slot.transform, false);
+                    gameObject.transform.localPosition = Vector3.zero;
                 }
-                gameObject.transform.SetParent(slot.transform, false);
-                gameObject.transform.localPosition = Vector3.zero;
             }
-              
+                gameObject.transform.SetParent(originalparent, false);
+            image.color = Color.white;
         }
-        image.color = Color.white;
+        
     }
+    
+  
 
     // Start is called before the first frame update
     void Start()
     {
         image = GetComponent<Image>();
         rect = GetComponent<RectTransform>();
-        inventoryUi = GameObject.Find("Canvas").GetComponent<InventoryUi>();
+        inventoryUi = GameObject.Find("Inventory").GetComponent<InventoryUi>();
+        drawcardPanel = GameObject.Find("Panel Card random");
     }
-
-  
 }

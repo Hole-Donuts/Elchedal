@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CamFollow : MonoBehaviour
 {
+
     public Transform _Player;
     public float _SmoothSpeed;
 

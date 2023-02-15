@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7908034084175522410}
   - component: {fileID: 3599047801751206853}
   - component: {fileID: 7647225173903445689}
+  - component: {fileID: 6183563128402504208}
   m_Layer: 5
   m_Name: Image 1
   m_TagString: Untagged
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d2cbe61596995cc4c9f2f5fc3d023ac8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ae6efa0c53136b4a8d169da3d44b513, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89,3 +90,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24e4642ca151104a9f87144f59439b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6183563128402504208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442078446309379063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc65cf2095d85894ab03f72fdda80a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: bad0bc3de36e3cf48b8fc81798ab765d, type: 2}
+  _inventoryUi: {fileID: 0}
+  _inventoryManager: {fileID: 0}
+  panel: {fileID: 0}

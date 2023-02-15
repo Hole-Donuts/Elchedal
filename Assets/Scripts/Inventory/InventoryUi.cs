@@ -20,7 +20,7 @@ public class InventoryUi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     private void iniateSlot()
@@ -31,16 +31,43 @@ public class InventoryUi : MonoBehaviour
             ItemSlot.transform.SetParent(_ParentSlot, false);
             _Slot.Add(ItemSlot);
         }
-        DisplayItemIcon();
+       
     }
     
 
     public void DisplayItemIcon()
     {
-        for(int i = 0; i < _Slot.Count; i++)
-        {
-            GameObject iconItem = Instantiate(_InventoryManager._Items[i]._Icon);
-            iconItem.transform.SetParent(_Slot[i].transform, false);
-        }
+       
+            for(int i = 0; i < _Slot.Count; i++)
+            {
+                if (_InventoryManager._Items.Count > i&& _Slot[i].transform.childCount==0)
+                {
+                    GameObject iconItem = Instantiate(_InventoryManager._Items[i]._Icon);
+                    iconItem.transform.SetParent(_Slot[i].transform, false);
+                }
+
+                if (_InventoryManager._Items.Count > 0)
+                {
+                    _Slot[i].SetActive(true);
+                }
+                else
+                {
+                    _Slot[i].SetActive(false);
+                }
+            }
+            
+        
     }
+
+    public void ShowInventory()
+    {
+        _UiInventory.SetActive(true);
+        DisplayItemIcon();
+    }
+
+    public void closeInventory()
+    {
+        _UiInventory.SetActive(false);
+    }
+    
 }
