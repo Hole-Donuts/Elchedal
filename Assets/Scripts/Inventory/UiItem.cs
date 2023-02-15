@@ -33,6 +33,7 @@ public class UiItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandl
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        bool IsDropped = false;
         if (drawcardPanel.activeInHierarchy == false)
         {
             foreach(GameObject slot in inventoryUi._Slot)
@@ -47,9 +48,21 @@ public class UiItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandl
                     }
                     gameObject.transform.SetParent(slot.transform, false);
                     gameObject.transform.localPosition = Vector3.zero;
+
+                    IsDropped = true;
+                    break;
                 }
+               
+                  
+                
             }
-                gameObject.transform.SetParent(originalparent, false);
+
+            if (!IsDropped)
+            {
+                gameObject.transform.SetParent(originalparent,false);
+                gameObject.transform.localPosition = Vector3.zero;
+            }
+            
             image.color = Color.white;
         }
         
