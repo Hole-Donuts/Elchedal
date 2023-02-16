@@ -33,7 +33,7 @@ public class InventoryManager : MonoBehaviour
         
         if(_Items.Count<_MaxSlot)
         _Items.Add(_item);
-        
+        _inventoryUi.DisplayItemIcon();
     }
 
     public void RemoveItem(InventoryItem _item)

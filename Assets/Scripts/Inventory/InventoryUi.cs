@@ -37,15 +37,14 @@ public class InventoryUi : MonoBehaviour
 
     public void DisplayItemIcon()
     {
-       
-            for(int i = 0; i < _Slot.Count; i++)
-            {
-                if (_InventoryManager._Items.Count > i&& _Slot[i].transform.childCount==0)
+        for(int i = 0; i < _Slot.Count; i++) 
+        {
+                if (_InventoryManager._Items.Count > i && _Slot[i].transform.childCount==0)
                 {
                     GameObject iconItem = Instantiate(_InventoryManager._Items[i]._Icon);
                     iconItem.transform.SetParent(_Slot[i].transform, false);
+                    Destroy(iconItem.GetComponent<ItemPickUp>());
                 }
-
                 if (_InventoryManager._Items.Count > 0)
                 {
                     _Slot[i].SetActive(true);
@@ -55,14 +54,12 @@ public class InventoryUi : MonoBehaviour
                     _Slot[i].SetActive(false);
                 }
             }
-            
-        
     }
 
     public void ShowInventory()
     {
         _UiInventory.SetActive(true);
-        DisplayItemIcon();
+        
     }
 
     public void closeInventory()

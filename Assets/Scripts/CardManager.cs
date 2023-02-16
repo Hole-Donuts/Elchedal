@@ -14,32 +14,33 @@ namespace HoleDonut
         private int Maxcard = 3;
         private GameObject card;
         public GameObject canvas;
-      
-        private void Start()
+        
+        public void Update()
         {
-            Items.Shuffle(Items.Count);
-            SetCard();
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                ResetCard();
+            }
         }
-
-       
 
         private void SetCard()
         {
-           
-            
             for (int i = 0; i < Maxcard; i++)
             {
-                
                 GameObject card = Instantiate(Items[i]._Icon);
                 card.transform.SetParent(transformParent,false);
                 card.SetActive(true);
             }
         }
 
-        public void closeUiDrawCard()
+        public void ResetCard()
         {
-            canvas.SetActive(false);
+            foreach (Transform child in transformParent.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            Items.Shuffle(Items.Count);
+            SetCard();
         }
-        
     }
 }

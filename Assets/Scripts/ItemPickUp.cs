@@ -15,28 +15,31 @@ public class ItemPickUp : MonoBehaviour,IPointerClickHandler
 
     [SerializeField] 
     private GameObject panel;
+
+    [SerializeField] private GameObject pos;
+    
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _inventoryUi = GameObject.Find("Inventory").GetComponent<InventoryUi>();
         _inventoryManager = GameObject.Find("Player").GetComponent<InventoryManager>();
         panel = GameObject.Find("Panel");
+        pos = GameObject.Find("pos");
     }
 
   
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (panel.activeInHierarchy==false)
-        {
+      
             if (_inventoryManager!=null)
             {
-                Destroy(gameObject);
-                _inventoryManager.AddItem(item);
-                _inventoryUi.DisplayItemIcon();
+                if (pos.transform.childCount>=3)
+                {
+                    Destroy(gameObject);
+                    _inventoryManager.AddItem(item);
+                    _inventoryUi.DisplayItemIcon();
+                }
             }
-            
-        }
-       
     }
 }
