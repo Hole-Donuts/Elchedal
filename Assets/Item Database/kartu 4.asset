@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995863cab44232c42a2d5a5c387cd750, type: 3}
   m_Name: kartu 4
   m_EditorClassIdentifier: 
-  NameObject: kartu 3
+  NameObject: juan peler
   _Icon: {fileID: 442078446309379063, guid: 51e1c076c4858204cb2509c9d8f83331, type: 3}
+  ItemIcon: {fileID: 21300000, guid: ad67f03712a4c624683a68ed7242029e, type: 3}
+  Description: anak paling kontol di dtp

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 namespace HoleDonut
 {
     public class CardManager : MonoBehaviour
@@ -20,6 +19,7 @@ namespace HoleDonut
             if (Input.GetKeyDown(KeyCode.R))
             {
                 ResetCard();
+                gameObject.SetActive(true);
             }
         }
 
@@ -41,6 +41,11 @@ namespace HoleDonut
             }
             Items.Shuffle(Items.Count);
             SetCard();
+        }
+
+        public void CloseRandomCard()
+        {
+            canvas.SetActive(false);
         }
     }
 }

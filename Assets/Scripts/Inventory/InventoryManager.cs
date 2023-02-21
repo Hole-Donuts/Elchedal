@@ -10,8 +10,7 @@ public class InventoryManager : MonoBehaviour
 
     public InventoryUi _inventoryUi;
     public GameObject inventory;
-
- 
+    
 
     private void Update()
     {
@@ -30,7 +29,6 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItem(InventoryItem _item)
     {
-        
         if(_Items.Count<_MaxSlot)
         _Items.Add(_item);
         _inventoryUi.DisplayItemIcon();

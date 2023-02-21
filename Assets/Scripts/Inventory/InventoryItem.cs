@@ -6,7 +6,10 @@ using System;
 [CreateAssetMenu]
 public class InventoryItem :ScriptableObject
 {
+        
     public string NameObject;
     public GameObject _Icon;
-
+    public Sprite ItemIcon;
+    [TextArea]
+    public string Description;
 }

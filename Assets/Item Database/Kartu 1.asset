@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995863cab44232c42a2d5a5c387cd750, type: 3}
   m_Name: Kartu 1
   m_EditorClassIdentifier: 
-  NameObject: kartu 1
+  NameObject: Dimas Kontol
   _Icon: {fileID: 442078446309379063, guid: 971a9450d2df4df48aa0be6189dd44ac, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 599dd5f59fb3aa84abc61f62397d59dd, type: 3}
+  Description: adalah seorang manusia yang mempunyai sifat berkelakuan kek kontol

@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995863cab44232c42a2d5a5c387cd750, type: 3}
   m_Name: Kartu 2
   m_EditorClassIdentifier: 
-  NameObject: kartu 2
+  NameObject: AGa meki
   _Icon: {fileID: 442078446309379063, guid: 4561f56bb59ac0e4bbe9c7b6ef7307db, type: 3}
+  ItemIcon: {fileID: 21300000, guid: 2ae6efa0c53136b4a8d169da3d44b513, type: 3}
+  Description: Bacot doang gede kontol kecil

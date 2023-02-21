@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class InventoryUi : MonoBehaviour
 {
     public GameObject _PrefabSlot;
     public Transform _ParentSlot;
     public GameObject _UiInventory;
-
+    public GameObject _DeskripsiUi;
     InventoryManager _InventoryManager;
+    public GameObject BtnClose;
     public List<GameObject> _Slot = new List<GameObject>();
+    
     // Start is called before the first frame update
     void Start()
     {
         _InventoryManager = GameObject.Find("Player").GetComponent<InventoryManager>();
+        _UiInventory.SetActive(false);
         iniateSlot();
     }
 
@@ -25,16 +30,14 @@ public class InventoryUi : MonoBehaviour
 
     private void iniateSlot()
     {
-        for(int i = 0; i < _InventoryManager._MaxSlot; i++)
+        for (int i = 0; i < _InventoryManager._MaxSlot; i++)
         {
             GameObject ItemSlot = Instantiate(_PrefabSlot);
             ItemSlot.transform.SetParent(_ParentSlot, false);
             _Slot.Add(ItemSlot);
         }
-       
     }
     
-
     public void DisplayItemIcon()
     {
         for(int i = 0; i < _Slot.Count; i++) 
@@ -55,16 +58,19 @@ public class InventoryUi : MonoBehaviour
                 }
             }
     }
-
+    
     public void ShowInventory()
     {
         _UiInventory.SetActive(true);
-        
     }
 
     public void closeInventory()
     {
         _UiInventory.SetActive(false);
     }
-    
+
+    public void ShowButtonClose()
+    {
+        BtnClose.SetActive(true);
+    }
 }
