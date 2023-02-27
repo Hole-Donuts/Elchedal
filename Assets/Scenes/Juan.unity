@@ -154,7 +154,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6e191e61025984fbb2b0864478ebc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAttack: {fileID: 0}
+  characterBaseData: {fileID: 0}
+  statData:
+    hp: 0
+    mana: 0
+    armor: 0
+    damage: 0
+    attackSpeed: 0
+    movementSpeed: 0
+  statPointData:
+    strength: 0
+    intelligence: 0
+    constitution: 0
+    dexterity: 0
+  equipment: []
+  playerAttackTypeScriptable: {fileID: 0}
   dashLayerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -511,9 +525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82705d5fe18277459fb5272fd87d8da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSkill1: {fileID: 0}
-  playerSkill2: {fileID: 0}
-  playerSkill3: {fileID: 0}
 --- !u!61 &1591256799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -792,7 +803,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6e191e61025984fbb2b0864478ebc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAttack: {fileID: 11400000, guid: b277655444122a8458999bc85be49b3c, type: 2}
+  characterBaseData: {fileID: 11400000, guid: 6efeac5aa6dd0af449b6b35c415ddf23, type: 2}
+  statData:
+    hp: 0
+    mana: 0
+    armor: 0
+    damage: 0
+    attackSpeed: 0
+    movementSpeed: 0
+  statPointData:
+    strength: 0
+    intelligence: 0
+    constitution: 0
+    dexterity: 0
+  equipment:
+  - {fileID: 11400000, guid: 66c3732c12d95f84789214469093ec6a, type: 2}
+  - {fileID: 11400000, guid: 04962e4826bb48f479dc722d479199cd, type: 2}
+  playerAttackTypeScriptable: {fileID: 0}
   dashLayerMask:
     serializedVersion: 2
     m_Bits: 0
