@@ -2,10 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Unity.VisualScripting;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour, IDamageAble
-{
+{    
+    [Header("Player Stat")] 
+    public CharacterBaseData characterBaseData;
+    public StatData statData;
+    public StatPointData statPointData;
+    public Equipment[] equipment;
+
     private Animator playerAnimator;
     private const string HORIZONTAL = "Horizontal";
     private const string VERTICAL = "Vertical";
@@ -32,11 +40,16 @@ public class PlayerController : MonoBehaviour, IDamageAble
     private float _attackInterval = 0.2f;
     private float _attackIntervalTimer = 0;
 
+
     private void Awake()
     {
         playerAnimator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         state = PlayerState.Normal;
+
+        statData = characterBaseData.stat.ShallowCopy();
+
+        statPointData = characterBaseData.statPoint.ShallowCopy();
     }
 
     private void Update()
@@ -142,7 +155,7 @@ public class PlayerController : MonoBehaviour, IDamageAble
         if (Input.GetMouseButtonDown(0))
         {
             state = PlayerState.Delaying;
-            if (_attackState == playerAttackTypeScriptable.animationClip.Count)
+            if (_attackState == playerAttackTypeScriptable.moveSets.Count)
             {
                 _attackState = 0;
             }
@@ -154,8 +167,8 @@ public class PlayerController : MonoBehaviour, IDamageAble
     private IEnumerator Attack(int attackState)
     {
         moveDir = Vector2.zero;
-        playerAnimator.CrossFade(playerAttackTypeScriptable.animationClip[attackState].name, 0);
-        float time = playerAnimator.runtimeAnimatorController.animationClips.First(x => x.name == playerAttackTypeScriptable.animationClip[attackState].name).length;
+        playerAnimator.CrossFade(playerAttackTypeScriptable.moveSets[attackState].animationClip.name, 0);
+        float time = playerAnimator.runtimeAnimatorController.animationClips.First(x => x.name == playerAttackTypeScriptable.moveSets[attackState].animationClip.name).length;
         yield return new WaitForSeconds(time - _attackInterval);
         state = PlayerState.Attacking;
         _attackState += 1;
@@ -180,5 +193,13 @@ public class PlayerController : MonoBehaviour, IDamageAble
                 health -= _damage;
                 break;
         }
+    }
+
+    [ContextMenu("Calculate stat data")]
+    public void CalculateStatData()
+    {
+        statData.hp = characterBaseData.stat.hp + (statPointData.constitution * 5) + equipment[(int)EquipmentType.Armor].hp;
+        statData.armor=characterBaseData.stat.armor+(statPointData.constitution * 2)+equipment[(int)EquipmentType.Armor].armor;
+        statData.damage = characterBaseData.stat.damage + (statPointData.strength * 2) + equipment[(int)EquipmentType.Weapon].damage;
     }
 }

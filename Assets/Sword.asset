@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b78fdc0079e754da8a104a7bfcb780, type: 3}
-  m_Name: Attack 1
+  m_Script: {fileID: 11500000, guid: 213fe1880ebe2f24e859fa25b21858e1, type: 3}
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  attackIcon: {fileID: 21300000, guid: aba4b78456a277d42af0c8dcb5ae835c, type: 3}
-  moveSets: []
+  name: 
+  equipmentType: 0
+  damage: 500
+  hp: 0
+  armor: 0
